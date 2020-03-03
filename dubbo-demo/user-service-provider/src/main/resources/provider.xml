@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xmlns:bean="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+    <!--指定当前服务/应用的名字（名称不可重复 一般用应用名（模块名））-->
+    <dubbo:application name="user-service-provider"></dubbo:application>
+
+    <!--  指定注册中心的位置  -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"></dubbo:registry>
+<!--    <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />-->
+    <!--  指定通讯规则（通讯协议？ 端口？ 使用dubbo协议，在20880（端口号随便写）端口）  -->
+    <!-- 用dubbo协议在20880端口暴露服务
+    <dubbo:protocol name="dubbo" port="20880" />-->
+    <dubbo:protocol name="dubbo" port="20880"></dubbo:protocol>
+    <!-- 4 暴露服务   ref指向服务的真实实现对象-->
+    <dubbo:service interface="com.albert.gmall.service.UserService" ref="userServiceImpl"></dubbo:service>
+    <!-- 服务的实现类   -->
+    <bean id="userServiceImpl" class="com.albert.gmall.service.impl.UserServiceImpl"></bean>
+</beans>
