@@ -1,0 +1,32 @@
+server:
+  port: 8082
+person:
+  username: Tom
+  salary: 25000
+  age: 28
+  sex: male
+#arry
+  pets: dog,cat
+#list
+  list:
+    - Lion
+    - Tony
+#map
+  friend:
+    name: Jerry
+    age: 35
+#list 嵌套map/对象
+  children:
+    - name: Mike
+      weight: 10
+    - name: Eric
+      weight: 30
+#对象嵌套对象
+  employee:
+    name: Mike
+    age: 25
+#JWT 密钥
+jwt:
+  secretKey: xxxxfdsfxxx
+  issuer: albert.song
+
